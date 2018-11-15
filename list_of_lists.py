@@ -5,6 +5,7 @@
 # the total number of students enrolled,
 # and the annual tuition fees.
 
+
 # The procedure should return two numbers,
 # not a string,
 # giving the total number of students
