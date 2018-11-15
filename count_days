@@ -4,13 +4,64 @@ def is_leap_year(year):
     else:
         if year % 100 != 0:
             return True
-        else:
-            if year % 400 != 0:
-                return False
+        if year % 400 != 0:
+            return False
     return True
 
-def count_remaining_days(month,day):
-    days_of_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    return days_of_month[month + 1] - day
 
-print count_remaining_days(1,30)
+def days_in_year(year):
+    if is_leap_year(year):
+        return 366
+    else:
+        return 365
+
+
+def days_from_date(year, month, day):
+    daysofMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if is_leap_year(year):
+        daysofMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    days = daysofMonth[month - 1] - day
+    while month < 12:
+        days = days + daysofMonth[month]
+        month = month + 1
+    return days
+
+
+def days_till_date(year, month, day):
+    daysofMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if is_leap_year(year):
+        daysofMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    days = daysofMonth[month - 1] - day
+    i = 0
+    while i < month - 1:
+        days = days + daysofMonth[i]
+        i = i + 1
+    return days
+
+
+def count_days_between(y1, m1, d1, y2, m2, d2):
+    if y2 > y1:
+        print
+        "Date2 > Date1"
+        return None
+    if y2 == y1:
+        if m2 > m1:
+            print
+            "Date2 > Date1"
+            return None
+        if m2 == m1:
+            if d2 > d1:
+                print
+                "Date2 > Date1"
+                return None
+
+    days = days_from_date(y1, m1, d1)
+    y1 = y1 + 1
+    while y1 < y2:
+        days = days + days_in_year(y1)
+        y1 = y1 + 1
+
+    days = days + days_till_date(y2, m2, d2)
+    return days
+
+print (count_days_between(2011,3,20,2010,3,19))
