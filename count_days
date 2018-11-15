@@ -1,0 +1,16 @@
+def is_leap_year(year):
+    if year % 4 != 0:
+        return False
+    else:
+        if year % 100 != 0:
+            return True
+        else:
+            if year % 400 != 0:
+                return False
+    return True
+
+def count_remaining_days(month,day):
+    days_of_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return days_of_month[month + 1] - day
+
+print count_remaining_days(1,30)
