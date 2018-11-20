@@ -1,24 +1,34 @@
-def smallest(numbers):
+def find_smallest(numbers):
     i = 0
-    small = numbers[0]
-    while i < len (numbers):
-        if numbers[i] < small:
-            small = numbers[i]
+    smallest = numbers[i]
+    while i < len(numbers):
+        if numbers[i] < smallest:
+            smallest = numbers[i]
         i = i + 1
-    return small
+    return smallest
 
 
-
-numbers = [6,10,3,-1,-2,-5,0,4,1,2,3,4,5,6]
-pivot = 0
-
-i = 0
-nearest = smallest(numbers)
-while i < len (numbers):
-    if numbers[i] < pivot:
-
-        if nearest <= numbers[i]:
+def find_nearest(numbers, pivot):
+    if pivot <= find_smallest(numbers):
+        print
+        'No number found smaller than ', pivot
+        return None
+    i = 0
+    nearest = find_smallest(numbers)
+    while i < len(numbers):
+        if numbers[i] < pivot and numbers[i] >= nearest:
+            print
+            numbers[i]
             nearest = numbers[i]
             index = i
-    i = i + 1
-print "Nearest is ",nearest, " and index is ", index
+        i = i + 1
+    return nearest, index
+
+
+numbers = [6, 10, 3, -1, -2, -5, 0, 4, 1, 2, 3, 4, 5, 6]
+pivot = -5
+
+print ('Numbers list is ', numbers, ' and pivot is ', pivot)
+
+
+print (find_nearest(numbers, pivot))
