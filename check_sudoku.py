@@ -58,7 +58,7 @@ incorrect5 = [[1, 1.5],
 
 def check_sudoku(p):
     l = len(p)
-    n = 0
+    n = 1
     while (n < l):
         i = 0
         while i < l:
@@ -66,9 +66,9 @@ def check_sudoku(p):
             col = 0
             j = 0
             while j < l:
-                if p[i][j] == p[n][i]:
+                if p[i][j] == n:
                     row = row + 1
-                if p[j][i] == p[n][i]:
+                if p[j][i] == n:
                     col = col + 1
                 j = j + 1
             if row !=1 or col != 1:
