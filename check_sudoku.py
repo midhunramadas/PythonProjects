@@ -82,7 +82,7 @@ def check_sudoku(p):
 
 
 print check_sudoku(incorrect)
-# >>> False
+ # >>> False
 
 #print check_sudoku(correct)
 # >>> True
