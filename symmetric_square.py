@@ -3,6 +3,8 @@
 # procedure, symmetric, which takes a list as input, and returns the
 # boolean True if the list is symmetric and False if it is not.
 def symmetric(p):
+    if p == []:
+        return True
     if len(p) != len(p[0]):
         return False
     n = len(p)
@@ -18,30 +20,31 @@ def symmetric(p):
 
 
 
-print (symmetric([[1, 2, 3],
-                [2, 3, 4],
-                [3, 4, 1]]))
+#print (symmetric([[1, 2, 3],
+#                [2, 3, 4],
+#                [3, 4, 1]]))
 #>>> True
 
-print (symmetric([["cat", "dog", "fish"],
-                ["dog", "dog", "fish"],
-                ["fish", "fish", "cat"]]))
+#print (symmetric([["cat", "dog", "fish"],
+#                ["dog", "dog", "fish"],
+#                ["fish", "fish", "cat"]]))
 #>>> True
 
-print (symmetric([["cat", "dog", "fish"],
-                ["dog", "dog", "dog"],
-                ["fish","fish","cat"]]))
+#print (symmetric([["cat", "dog", "fish"],
+#                ["dog", "dog", "dog"],
+#                ["fish","fish","cat"]]))
 #>>> False
 
-print (symmetric([[1, 2],
-                [2, 1]]))
+#print (symmetric([[1, 2],
+#                [2, 1]]))
 #>>> True
 
-print (symmetric([[1, 2, 3, 4],
-                [2, 3, 4, 5],
-                [3, 4, 5, 6]]))
+#print (symmetric([[1, 2, 3, 4],
+#                [2, 3, 4, 5],
+#                [3, 4, 5, 6]]))
 #>>> False
 
-print (symmetric([[1,2,3],
-                 [2,3,1]]))
+#print (symmetric([[1,2,3],
+#                 [2,3,1]]))
 #>>> False
+
